@@ -32,12 +32,13 @@ msiexec /i /qn "YubiKey Removal Behavior Tool.msi"
 ```
 
 ## Administrative template (ADMX)
-The accompanying administrative template (ADMX) adds the option to _enable_ (default) or _disable_ YubiKey removal behavior by setting a central (or local) GPO.The template is designed to augment the existing ```credentialprovider.admx``` with an additional setting. To use this template:
+The accompanying administrative template (ADMX) adds the option to control YubiKey removal behavior by setting a central (or local) GPO.
+The template is designed to augment the existing ```credentialprovider.admx``` with an additional setting. To use this template:
 
-1. Copy the ADMX file ```YubiKeyRemovalBehavior.admx``` to location: ```C:\Windows\PolicyDefinitions``` the on your domain controller (DC) / member server
-2. Copy the ADML file ```YubiKeyRemovalBehavior.adml``` to location: ```C:\Windows\PolicyDefinitions\en-US```
+1. Copy the ```.admx``` file to location: ```C:\Windows\PolicyDefinitions```
+2. Copy the ```.adml``` file to location: ```C:\Windows\PolicyDefinitions\en-US```
 3. Open the GPO editor (restart if open previously) and navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **System** > **Logon**
-4. Double-click on 'YubiKey removal behavior' and toggle policy: ```Enabled``` (ON) or ```Disabled``` (OFF)
+4. Double-click on 'YubiKey removal behavior' and adjust settings as required
 5. Click **Apply** and **OK**.
 
 **Note**: Since the setting applies to the computer object, computers must have read access to the GPO.
@@ -54,7 +55,7 @@ If ```logout``` behavior is configured, any currently logged in user will be log
 To log back in, the user reinserts the YubiKey into the USB port and provides PIN and Touch.
 
 #### Removal using NFC reader
-💡 If you are using NFC you MUST set application behavior to ```logout``` (registry value ```2```) else you will be logged out immedietely on login(!)
+⚠️ If you are using NFC you MUST set application behavior to ```logout``` (registry value ```2```) else you will be logged out immedietely on login(!)
 
 When a supported NFC reader is attached to the workstation, the user can bring his/her YubiKey to the reader for a short duration
 and achieve a "tap 'n go" type user experience. On successful read of the YubiKey, the **YubiKey Removal Behavior** application will
@@ -63,7 +64,7 @@ _logout_ any currently logged in user(s). To log back in, the user will again pl
 ## Disable the functionality
 The application can be "disabled" by changing the ```removalOption``` registry key to ```0``` or ```Disabled``` using Group Policy or local registry. 
 
-**Note**: toggling the registry setting does not deactivate or uninstall the application.
+**Note**: Toggling the registry setting does not deactivate or uninstall the application.
 
 ## Uninstalling the app
 The application can be uninstalled from **Add/Remove Programs**, using **GPO** or **MDM**.
