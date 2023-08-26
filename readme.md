@@ -50,16 +50,17 @@ This behavior can be modified to instead _logout_ the user(s) OR _disabling_ the
 _Note further with regards to U/X:_
 
 #### Removal from USB port
-- By default (no configuration required), the application will _lock_ the workstation if the YubiKey is removed from the USB port.
-- If ```logout``` behavior is configured, any currently logged in user will be logged out from Windows if the YubiKey is removed from the USB port.
-- To log back in, the user reinserts the YubiKey into the USB port and provides PIN and Touch.
+- By default, the application will _lock_ the workstation if the YubiKey is removed from the USB port.
+- If ```logout``` is configured, any logged in user will be logged out from Windows.
+- To log back in, the user _reinserts_ the YubiKey into the USB port and provides PIN and Touch.
 
 #### Removal using NFC reader
+_With NFC it is possible to achieve a "tap 'n go" type user experience:_
+
 ⚠️ If you are using NFC you MUST set application behavior to ```logout``` (registry value ```2```) else you will be logged out immedietely on login(!)
 
-When a supported NFC reader is attached to the workstation, the user can bring his/her YubiKey to the reader for a short duration
-and achieve a "tap 'n go" type user experience. On successful read of the YubiKey, the **YubiKey Removal Behavior** application will
-_logout_ any currently logged in user(s). To log back in, the user will again place the YubiKey on the NFC reader and provide PIN.
+- To logout, the user "taps" or places the YubiKey on the NFC reader.
+- To log back in, the user will place the YubiKey on the NFC reader and provide PIN.
 
 ## Disable the functionality
 The application can be "disabled" by changing the ```removalOption``` registry key to ```0``` or ```Disabled``` using Group Policy or local registry. 
