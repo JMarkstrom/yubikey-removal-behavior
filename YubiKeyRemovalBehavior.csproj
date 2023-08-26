@@ -22,4 +22,8 @@
       <PackageReference Include="Yubico.YubiKey" Version="1.5.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RELEASE\" />
+  </ItemGroup>
+
 </Project>

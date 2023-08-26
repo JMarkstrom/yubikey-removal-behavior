@@ -10,7 +10,7 @@
 *.userosscache
 *.sln.docstates
 
-# Jonas folders
+# Jonas specific files and folders
 bak/
 *.YubiKeyRemovalBehavior.csproj
 *.YubiKeyRemovalBehavior.sln
