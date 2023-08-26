@@ -45,19 +45,19 @@ The template is designed to augment the existing ```credentialprovider.admx``` w
 
 ## 📖 Usage
 By default (no configuration required), the application will _lock_ the workstation on YubiKey removal. 
-This behavior can be modified to instead _logout_ the user(s) OR _disabling_ the functionality. 
+This behavior can be modified to instead _log out_ the user(s) OR _disabling_ the functionality. 
 
 _Note further with regards to U/X:_
 
 #### Removal from USB port
 - By default, the application will _lock_ the workstation if the YubiKey is removed from the USB port.
-- If ```logout``` is configured, any logged in user will be _logged out_ from Windows.
+- If ```Log out user(s)``` is configured, any logged in user will be _logged out_ from Windows.
 - To log back in, the user _reinserts_ the YubiKey into the USB port and provides PIN and Touch.
 
 #### Removal using NFC reader
 _With NFC it is possible to achieve a "tap 'n go" type user experience:_
 
-⚠️ If you are using NFC you MUST set application behavior to ```logout``` (registry value ```2```) else you will be logged out immedietely on login(!)
+⚠️ If you are using NFC you MUST set application behavior to ```Log out user(s)``` (registry value ```2```) else you will be logged out immedietely on login(!)
 
 - To log out, the user "taps" or places the YubiKey on the NFC reader.
 - To log back in, the user will place the YubiKey on the NFC reader and provide PIN.

@@ -20,7 +20,7 @@
 OPTIONS:
 -----------
 - Lock workstation
-- Logout user(s)
+- Log out user(s)
 
 
 NOTE: For the setting to take effect you will need to also install the 'YubiKey Removal Behavior' tool on target system(s).
@@ -28,7 +28,7 @@ NOTE: For the setting to take effect you will need to also install the 'YubiKey 
 </string>
 			<!-- version 2.0 -->
 			<string id="Lock">Lock workstation</string>
-			<string id="Logout">Logout user(s)</string>
+			<string id="Logout">Log out user(s)</string>
 			<string id="doNothing">Do nothing</string>
 		</stringTable>
 		<presentationTable>
