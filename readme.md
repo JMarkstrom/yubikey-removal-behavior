@@ -63,7 +63,7 @@ _With NFC it is possible to achieve a "tap 'n go" type user experience:_
 - To log back in, the user will place the YubiKey on the NFC reader and provide PIN.
 
 ## Disable the functionality
-The application can be "disabled" by changing the ```removalOption``` registry key to ```0``` or ```Disabled``` using Group Policy or local registry. 
+The application can be "disabled" by changing the ```removalOption``` registry key to ```0``` or ```Do nothing``` using Group Policy or local registry. 
 
 **Note**: Toggling the registry setting does not deactivate or uninstall the application.
 
