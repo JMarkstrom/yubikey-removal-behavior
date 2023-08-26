@@ -33,7 +33,7 @@ msiexec /i /qn "YubiKey Removal Behavior Tool.msi"
 
 ## 📖 Usage
 By default (no configuration required), the **YubiKey Removal Behavior** application will _lock_ the workstation on YubiKey removal. 
-This behavior can be modified to instead _logout_ the user(s) or _disabling_ the functionality. Note further:
+This behavior can be modified to instead _logout_ the user(s) OR _disabling_ the functionality. Note further with regards to U/X:
 
 #### Removal from USB port
 By default (no configuration required), the **YubiKey Removal Behavior** application will _lock_ the workstation if the YubiKey is removed from the USB port.
