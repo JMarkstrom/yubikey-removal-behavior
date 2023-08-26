@@ -65,7 +65,7 @@ namespace Yubico
         private void YubiKeyRemoved(object? sender, YubiKeyDeviceEventArgs eventArgs)
         {
             // Retrieve the value of the "removalOption" registry key
-            //int removalOption = (int)Registry.GetValue(REGISTRY_KEY, "removalOption", 1);
+            // The initial value is set by the MSI (WiX) during installation!
             string removalOption = (string)Registry.GetValue(REGISTRY_KEY, "removalOption", "1");
             //if (removalOption == 1)
             if (removalOption == "1")
