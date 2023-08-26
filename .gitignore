@@ -10,8 +10,9 @@
 *.userosscache
 *.sln.docstates
 
-# Ignore folders
+# Jonas
 bak/
+.gitattributes
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
