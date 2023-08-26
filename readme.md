@@ -25,14 +25,6 @@ The YubiKey Removal Behavior application is supported on ```64 bit``` **Windows 
 ## Installation
 Run the provided MSI (no interaction is required) and reboot the computer for changes to take effect.
 
-The Microsoft Installer (MSI) will install the application in the ```C:\Program Files\Yubico\YubiKey Removal Behavior\``` directory. 
-Additionally, it will create two registry entries: 
-
-- A key named ```removalOption``` with a default value of ```1``` (lock) under: ```HKLM\Software\Policies\Yubico\YubiKey Removal Behavior``` 
-- A reference to the ```YubiKeyRemovalBehavior.exe``` is added to: ```HKLM\Software\Microsoft\Windows\CurrentVersion\Run``` 
-
-**Note**: All registry keys are created in context of the machine in order to enforce functionality for ALL users.
-
 Here is an example of a running the installer from command line: 
 
 ```bash
