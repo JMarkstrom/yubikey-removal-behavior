@@ -10,9 +10,10 @@
 *.userosscache
 *.sln.docstates
 
-# Jonas
+# Jonas folders
 bak/
-.gitattributes
+YubiKeyRemovalBehavior.csproj
+YubiKeyRemovalBehavior.sln
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
