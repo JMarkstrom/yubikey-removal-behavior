@@ -31,7 +31,7 @@ Here is an example of a running the installer from command line:
 msiexec /i /qn "YubiKey Removal Behavior Tool.msi"
 ```
 
-## Administrative template (ADMX)
+## 👮🏻 Administrative template (ADMX)
 The accompanying administrative template (ADMX) adds the option to control YubiKey removal behavior by setting a central (or local) GPO.
 The template is designed to augment the existing ```credentialprovider.admx``` with an additional setting. To use this template:
 
