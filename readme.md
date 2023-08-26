@@ -62,12 +62,12 @@ _With NFC it is possible to achieve a "tap 'n go" type user experience:_
 - To log out, the user "taps" or places the YubiKey on the NFC reader.
 - To log back in, the user will place the YubiKey on the NFC reader and provide PIN.
 
-## ✋🏻 Disable the functionality
+## 📖 Disable the functionality
 The application can be "disabled" by changing the ```removalOption``` registry key to ```0``` or ```Do nothing``` using Group Policy or local registry. 
 
 **Note**: Toggling the registry setting does not deactivate or uninstall the application.
 
-## 🔴 Uninstalling the app
+## 💾 Uninstalling the app
 The application can be uninstalled from **Add/Remove Programs**, using **GPO** or **MDM**.
 
 Here is an example of uninstalling from command line: 
@@ -76,7 +76,7 @@ Here is an example of uninstalling from command line:
 msiexec /qn /x "YubiKey Removal Behavior Tool.msi"
 ```
 
-## 🥅 Roadmap
+## 📖 Roadmap
 Possible improvements includes:
 - Provide script or instruction to toggle settings with Microsoft Intune
 - Using variables and/or relative paths in the installer (paths, registry keys)
