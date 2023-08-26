@@ -31,26 +31,6 @@ Here is an example of a running the installer from command line:
 msiexec /i /qn "YubiKey Removal Behavior Tool.msi"
 ```
 
-## 📖 Usage
-By default (no configuration required), the **YubiKey Removal Behavior** application will _lock_ the workstation on YubiKey removal. 
-This behavior can be modified to instead _logout_ the user(s) OR _disabling_ the functionality. Note further with regards to U/X:
-
-#### Removal from USB port
-By default (no configuration required), the **YubiKey Removal Behavior** application will _lock_ the workstation if the YubiKey is removed from the USB port.
-If ```logout``` behavior is configured, any currently logged in user will be logged out from Windows if the YubiKey is removed from the USB port.
-To log back in, the user reinserts the YubiKey into the USB port and provides PIN and Touch.
-
-#### Removal using NFC reader
-**Note**: If you are using NFC you MUST set application behavior to ```logout``` (registry value ```2```).
-When a supported NFC reader is attached to the workstation, the user can bring his/her YubiKey to the reader for a short duration
-and achieve a "tap 'n go" type user experience. On successful read of the YubiKey, the **YubiKey Removal Behavior** application will
-_logout_ any currently logged in user(s). To log back in, the user will again place the YubiKey on the NFC reader and provide PIN.
-
-### Disable the functionality
-The application can be "disabled" by changing the ```removalOption``` registry key to ```0``` or ```Disabled``` using Group Policy or local registry. 
-
-**Note**: toggling the registry setting does not deactivate or uninstall the application.
-
 ## Administrative template (ADMX)
 The accompanying administrative template (ADMX) adds the option to _enable_ (default) or _disable_ YubiKey removal behavior by setting a central (or local) GPO.The template is designed to augment the existing ```credentialprovider.admx``` with an additional setting. To use this template:
 
@@ -61,6 +41,29 @@ The accompanying administrative template (ADMX) adds the option to _enable_ (def
 5. Click **Apply** and **OK**.
 
 **Note**: Since the setting applies to the computer object, computers must have read access to the GPO.
+
+## 📖 Usage
+By default (no configuration required), the **YubiKey Removal Behavior** application will _lock_ the workstation on YubiKey removal. 
+This behavior can be modified to instead _logout_ the user(s) OR _disabling_ the functionality. 
+
+_Note further with regards to U/X:_
+
+#### Removal from USB port
+By default (no configuration required), the **YubiKey Removal Behavior** application will _lock_ the workstation if the YubiKey is removed from the USB port.
+If ```logout``` behavior is configured, any currently logged in user will be logged out from Windows if the YubiKey is removed from the USB port.
+To log back in, the user reinserts the YubiKey into the USB port and provides PIN and Touch.
+
+#### Removal using NFC reader
+💡 If you are using NFC you MUST set application behavior to ```logout``` (registry value ```2```) else you will be logged out immedietely on login(!)
+
+When a supported NFC reader is attached to the workstation, the user can bring his/her YubiKey to the reader for a short duration
+and achieve a "tap 'n go" type user experience. On successful read of the YubiKey, the **YubiKey Removal Behavior** application will
+_logout_ any currently logged in user(s). To log back in, the user will again place the YubiKey on the NFC reader and provide PIN.
+
+## Disable the functionality
+The application can be "disabled" by changing the ```removalOption``` registry key to ```0``` or ```Disabled``` using Group Policy or local registry. 
+
+**Note**: toggling the registry setting does not deactivate or uninstall the application.
 
 ## Uninstalling the app
 The application can be uninstalled from **Add/Remove Programs**, using **GPO** or **MDM**.
