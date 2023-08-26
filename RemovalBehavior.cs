@@ -40,7 +40,7 @@ namespace Yubico
     using Microsoft.Win32;
     using Yubico.YubiKey;
 
-    public class YubiKeyRemovalTool
+    public class RemovalBehavior
     {
 
         // Registry key that stores the service settings, e.g. whether the service is enabled or not
@@ -56,7 +56,7 @@ namespace Yubico
         // Set the Device Listener from Yubico SDK
         private YubiKeyDeviceListener yubiKeyDeviceListener = YubiKeyDeviceListener.Instance;
 
-        public YubiKeyRemovalTool()
+        public RemovalBehavior()
         {
             // Register the YubiKeyRemoved method as the event handler for the Removed event
             yubiKeyDeviceListener.Removed += YubiKeyRemoved;

@@ -43,7 +43,9 @@ class YubiKeyRemovalBehavior
   
     public static void Main()
     {
-        new YubiKeyRemovalTool();
+        //new YubiKeyRemovalTool();
+
+        new RemovalBehavior();
         while (true)
         {
             Thread.Sleep(2);
