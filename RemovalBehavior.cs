@@ -12,8 +12,8 @@
 * when a YubiKey is removed from the computer. When a YubiKey is removed, 
 * the code retrieves the value of the "action" registry key:
 * 
-*  - If the value of the "action" key is '1', the code locks the workstation. 
-*  - If the value of the registry key is '2', the code logs out the user.
+*  - If the value of the "action" key is 'lock', the code locks the workstation. 
+*  - If the value of the registry key is 'logout', the code logs out the user.
 *  - If the value of the registry key is any other value, the code does nothing.
 * 
 * The registry key is set either by an MSI installer and/or using Group Policy.
@@ -65,18 +65,17 @@ namespace Yubico
         private void YubiKeyRemoved(object? sender, YubiKeyDeviceEventArgs eventArgs)
         {
             // Retrieve the value of the "removalOption" registry key
-            // The initial value is set by the MSI (WiX) during installation!
-            string removalOption = (string)Registry.GetValue(REGISTRY_KEY, "removalOption", "1");
-            //if (removalOption == 1)
-            if (removalOption == "1")
+            string removalOption = (string)Registry.GetValue(REGISTRY_KEY, "removalOption", "lock");
+           
+            if (removalOption == "lock")
             {
-                 // Lock the workstation on YubiKey removal if the value in registry is '1'
+                 // Lock the workstation on YubiKey removal if the value in registry is 'lock'
                  LockWorkStation();
             }
-            //else if (removalOption == 2) {
-            else if (removalOption == "2") {
+            
+            else if (removalOption == "logout") {
                 
-                // Log out the current user if value in registry is '2'.
+                // Log out the current user if value in registry is 'logout'.
                 ExitWindowsEx(0 | 0x00000004, 0);
 
                 // If there is any other value, the application does nothing!

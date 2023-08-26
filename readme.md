@@ -11,8 +11,8 @@ a similar level of control to FIDO2 Security Keys (YubiKeys) by locking a compat
 currently logged in user(s) when a YubiKey is removed. It does this by monitoring for YubiKey removal events and checking the 
 value of the ```removalOption``` registry key:
 
-- If the value is set to ```1```, the application will lock the workstation
-- If the value is set to ```2```, the application will log out the user(s)
+- If the value is set to ```lock```, the application will lock the workstation
+- If the value is set to ```logout```, the application will log out the user(s)
 
 Control of the value is exercised using Group Policy, Registry or MDM.
 
@@ -57,7 +57,7 @@ _Note further with regards to U/X:_
 #### Removal using NFC reader
 _With NFC it is possible to achieve a "tap 'n go" type user experience:_
 
-⚠️ If you are using NFC you MUST set application behavior to ```Log out user(s)``` (registry value ```2```) else you will be logged out immedietely on login(!)
+⚠️ If you are using NFC you MUST set application behavior to ```Log out user(s)``` (registry value ```logout```) else you will be logged out immediately on login(!)
 
 - To log out, the user "taps" or places the YubiKey on the NFC reader.
 - To log back in, the user will place the YubiKey on the NFC reader and provide PIN.

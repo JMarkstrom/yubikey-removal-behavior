@@ -28,12 +28,12 @@
 				<enum id="StateSelect" valueName="removalOption" required="true">
 					<item displayName="$(string.Lock)">
 						<value>
-							<string>1</string>
+							<string>lock</string>
 						</value>
 					</item>
 					<item displayName="$(string.Logout)">
 						<value>
-							<string>2</string>
+							<string>logout</string>
 						</value>
 					</item>
 				</enum>
