@@ -2,16 +2,20 @@
 ##########################################################################
 # YubiKey Removal Behavior     
 ##########################################################################
-* version: 1.1.0
+* version: 2.0.0
 * created by: Jonas Markström (https://swjm.blog)
-* last updated on: 2023-08-232 by Jonas Markström
+* last updated on: 2023-08-26 by Jonas Markström
+
 * see readme.md for more info.
 *
 * DESCRIPTION: This code listens for YubiKey removal events and takes action 
 * when a YubiKey is removed from the computer. When a YubiKey is removed, 
-* the code retrieves the value of the "isEnabled" registry key. 
-* If the value of the "isEnabled" key is 1, the code locks the workstation. 
-* If the value of the registry key is any other value, the code does nothing.
+* the code retrieves the value of the "action" registry key:
+* 
+*  - If the value of the "action" key is '1', the code locks the workstation. 
+*  - If the value of the registry key is '2', the code logs out the user.
+*  - If the value of the registry key is any other value, the code does nothing.
+* 
 * The registry key is set either by an MSI installer and/or using Group Policy.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -33,20 +37,21 @@
 namespace Yubico
 {
     using System.Runtime.InteropServices;
-    using Yubico.YubiKey;
     using Microsoft.Win32;
+    using Yubico.YubiKey;
 
     public class YubiKeyRemovalTool
     {
 
         // Registry key that stores the service settings, e.g. whether the service is enabled or not
-        private const string REGISTRY_KEY = @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Yubico\Lock workstation on YubiKey removal";
+        private const string REGISTRY_KEY = @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Yubico\YubiKey Removal Behavior";
 
-        // Import the LockWorkStation method from the user32.dll library
-        //[DllImport("user32.dll")]
-        //public static extern void LockWorkStation();
+        // Import the LockWorkStation AND ExitWindows methods from the user32.dll library
+        [DllImport("user32.dll")]
+        public static extern void LockWorkStation();
+
         [DllImport("user32.dll", SetLastError = true)]
-        private static extern bool ExitWindowsEx(uint uFlags, uint dwReason); //Per's code
+        private static extern bool ExitWindowsEx(uint uFlags, uint dwReason);
 
         // Set the Device Listener from Yubico SDK
         private YubiKeyDeviceListener yubiKeyDeviceListener = YubiKeyDeviceListener.Instance;
@@ -59,18 +64,24 @@ namespace Yubico
 
         private void YubiKeyRemoved(object? sender, YubiKeyDeviceEventArgs eventArgs)
         {
-            // Retrieve the value of the "isEnabled" registry key
-            int isEnabled = (int)Registry.GetValue(REGISTRY_KEY, "isEnabled", 1);
-            if (isEnabled == 1)
+            // Retrieve the value of the "removalOption" registry key
+            //int removalOption = (int)Registry.GetValue(REGISTRY_KEY, "removalOption", 1);
+            string removalOption = (string)Registry.GetValue(REGISTRY_KEY, "removalOption", "1");
+            //if (removalOption == 1)
+            if (removalOption == "1")
             {
-                // Lock the workstation on YubiKey removal
-                //LockWorkStation();
-
-                /**
-                * Log out the current user.
-                **/
+                 // Lock the workstation on YubiKey removal if the value in registry is '1'
+                 LockWorkStation();
+            }
+            //else if (removalOption == 2) {
+            else if (removalOption == "2") {
+                
+                // Log out the current user if value in registry is '2'.
                 ExitWindowsEx(0 | 0x00000004, 0);
+
+                // If there is any other value, the application does nothing!
+            }
+
             }
         }
     }
-}

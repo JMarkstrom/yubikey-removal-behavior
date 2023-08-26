@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+****************************************************************************
+* DISCLAIMER: Unless required by applicable law or agreed to in writing, 
+* software distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+****************************************************************************
+-->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+	<displayName>enter display name here</displayName>
+	<description>enter description here</description>
+	<resources>
+		<stringTable>
+			<string id="Logon">Logon</string>
+			<string id="LockOrLogoutWorkstationOnYubiKeyRemoval">YubiKey Removal Behavior</string>
+			<string id="LockOrLogoutWorkstationOnYubiKeyRemoval_Help">This policy setting allows you to control whether the workstation should lock if a YubiKey is removed or the user(s) be logged out.
+
+OPTIONS:
+-----------
+- Lock workstation
+- Logout user(s)
+
+
+NOTE: For the setting to take effect you will need to also install the 'YubiKey Removal Behavior' tool on target system(s).
+
+</string>
+			<!-- version 2.0 -->
+			<string id="Lock">Lock workstation</string>
+			<string id="Logout">Logout user(s)</string>
+			<string id="doNothing">Do nothing</string>
+		</stringTable>
+		<presentationTable>
+			<presentation id="StateSelection">
+				<dropdownList refId="StateSelect" noSort="true" defaultItem="0">Select removal response:</dropdownList>
+			</presentation>
+		</presentationTable>
+	</resources>
+</policyDefinitionResources>

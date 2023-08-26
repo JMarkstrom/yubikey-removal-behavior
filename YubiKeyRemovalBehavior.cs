@@ -2,18 +2,21 @@
 ##########################################################################
 # YubiKey Removal Behavior     
 ##########################################################################
-* version: 1.0
-* created by: 
-* last updated on: 2022-12-27 by Jonas Markström
+* version: 2.0.0
+* created by: Jonas Markström (https://swjm.blog)
+* last updated on: 2023-08-26 by Jonas Markström
+
 * see readme.md for more info.
 *
 * DESCRIPTION: This code listens for YubiKey removal events and takes action 
 * when a YubiKey is removed from the computer. When a YubiKey is removed, 
-* the code retrieves the value of the "isEnabled" registry key located at: 
-* 'HKEY_LOCAL_MACHINE\SOFTWARE\Yubico\Lock workstation on YubiKey removal'. 
-* If the value of the "isEnabled" key is 1, the code locks the workstation. 
-* If the value of the registry key is any other value, the code does nothing.
-*
+* the code retrieves the value of the "action" registry key:
+* 
+*  - If the value of the "action" key is '1', the code locks the workstation. 
+*  - If the value of the registry key is '2', the code logs out the user.
+*  - If the value of the registry key is any other value, the code does nothing.
+* 
+* The registry key is set either by an MSI installer and/or using Group Policy.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
 * You may not use this file except in compliance with the License.
