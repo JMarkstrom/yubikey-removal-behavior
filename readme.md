@@ -22,7 +22,7 @@ Control of the value is exercised using Group Policy, Registry or MDM.
 ## 💻 Prerequisites
 The YubiKey Removal Behavior application is supported on ```64 bit``` **Windows 10** and **Windows 11**. 
 
-## Installation
+## 💾 Installation
 Run the provided MSI (no interaction is required) and reboot the computer for changes to take effect.
 
 Here is an example of a running the installer from command line: 
