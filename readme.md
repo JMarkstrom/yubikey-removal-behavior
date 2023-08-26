@@ -11,12 +11,12 @@ a similar level of control to FIDO2 Security Keys (YubiKeys) by locking a compat
 currently logged in user(s) when a YubiKey is removed. It does this by monitoring for YubiKey removal events and checking the 
 value of the ```removalOption``` registry key:
 
-- If the value is set to ```1```, the code will lock the workstation
-- If the value is set to ```2```, the code will log out the user(s)
+- If the value is set to ```1```, the application will lock the workstation
+- If the value is set to ```2```, the application will log out the user(s)
 
 Control of the value is exercised using Group Policy, Registry or MDM.
 
-⚠️ This application was created for demonstration purposes only. It is _not_ a product of Yubico and as such this application and accompanying Microsoft Administrative Templates (ADMX) are provided "as-is" without any warranty of any kind, either expressed or implied.
+⚠️ This application is provided "as-is" without any warranty of any kind, either expressed or implied.
 
 
 ## 💻 Prerequisites
