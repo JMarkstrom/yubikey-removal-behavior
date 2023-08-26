@@ -73,10 +73,8 @@ msiexec /qn /x "YubiKey Removal Behavior Tool.msi"
 
 ## 📖 Roadmap
 Possible improvements includes:
-- Provide script or instruction to toggle settings with Microsoft Intune
 - Using variables and/or relative paths in the installer (paths, registry keys)
 - Reducing overall footprint / size of of application
-- Making the application launch sooner at logon
 - Code signing
 
 ## 🥷🏻 Contributing
