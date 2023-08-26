@@ -51,7 +51,7 @@ _Note further with regards to U/X:_
 
 #### Removal from USB port
 - By default, the application will _lock_ the workstation if the YubiKey is removed from the USB port.
-- If ```logout``` is configured, any logged in user will be logged out from Windows.
+- If ```logout``` is configured, any logged in user will be _logged out_ from Windows.
 - To log back in, the user _reinserts_ the YubiKey into the USB port and provides PIN and Touch.
 
 #### Removal using NFC reader
@@ -59,7 +59,7 @@ _With NFC it is possible to achieve a "tap 'n go" type user experience:_
 
 ⚠️ If you are using NFC you MUST set application behavior to ```logout``` (registry value ```2```) else you will be logged out immedietely on login(!)
 
-- To logout, the user "taps" or places the YubiKey on the NFC reader.
+- To log out, the user "taps" or places the YubiKey on the NFC reader.
 - To log back in, the user will place the YubiKey on the NFC reader and provide PIN.
 
 ## Disable the functionality
@@ -78,7 +78,7 @@ msiexec /qn /x "YubiKey Removal Behavior Tool.msi"
 
 ## 🥅 Roadmap
 Possible improvements includes:
-- Provide script or instruction to toggle ```isEnabled``` with Microsoft Endpoint Manager
+- Provide script or instruction to toggle settings with Microsoft Intune
 - Using variables and/or relative paths in the installer (paths, registry keys)
 - Reducing overall footprint / size of of application
 - Making the application launch sooner at logon
@@ -88,5 +88,5 @@ Possible improvements includes:
 Any help on the above (see 'roadmap) is welcome.
 
 ## 📜 Release History
-* 2023.08.26 `v2.0` Added option to logout of computer
+* 2023.08.26 `v2.0` Added option to log out of computer
 * 2022.12.27 `v1.0` First release
