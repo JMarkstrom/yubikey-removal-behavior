@@ -44,15 +44,15 @@ The template is designed to augment the existing ```credentialprovider.admx``` w
 **Note**: Since the setting applies to the computer object, computers must have read access to the GPO.
 
 ## 📖 Usage
-By default (no configuration required), the **YubiKey Removal Behavior** application will _lock_ the workstation on YubiKey removal. 
+By default (no configuration required), the application will _lock_ the workstation on YubiKey removal. 
 This behavior can be modified to instead _logout_ the user(s) OR _disabling_ the functionality. 
 
 _Note further with regards to U/X:_
 
 #### Removal from USB port
-By default (no configuration required), the **YubiKey Removal Behavior** application will _lock_ the workstation if the YubiKey is removed from the USB port.
-If ```logout``` behavior is configured, any currently logged in user will be logged out from Windows if the YubiKey is removed from the USB port.
-To log back in, the user reinserts the YubiKey into the USB port and provides PIN and Touch.
+- By default (no configuration required), the application will _lock_ the workstation if the YubiKey is removed from the USB port.
+- If ```logout``` behavior is configured, any currently logged in user will be logged out from Windows if the YubiKey is removed from the USB port.
+- To log back in, the user reinserts the YubiKey into the USB port and provides PIN and Touch.
 
 #### Removal using NFC reader
 ⚠️ If you are using NFC you MUST set application behavior to ```logout``` (registry value ```2```) else you will be logged out immedietely on login(!)
