@@ -12,8 +12,8 @@
 
 # Jonas specific files and folders
 bak/
-*.YubiKeyRemovalBehavior.csproj
-*.YubiKeyRemovalBehavior.sln
+**/YubiKeyRemovalBehavior.csproj
+**/YubiKeyRemovalBehavior.sln
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
