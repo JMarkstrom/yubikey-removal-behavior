@@ -41,8 +41,7 @@ To use this template with Microsoft Active Directory (or a local computer):
 4. Double-click on 'YubiKey Removal Behavior' and adjust settings as required
 5. Click **Apply** and **OK**.
 
-**Note I**: Since the setting applies to the computer object, computers must have read access to the GPO.
-**Note I**: To use the ADMX with Intune, please refer to instructions on [swjm.blog](https://swjm.blog/locking-the-workstation-on-fido2-security-key-removal-part-2-80962c944c78)
+**Note**: To use the ADMX with Intune, please refer to instructions on [swjm.blog](https://swjm.blog/locking-the-workstation-on-fido2-security-key-removal-part-2-80962c944c78)
 
 ## 📖 Usage
 By default (no configuration required), the application will _lock_ the workstation on YubiKey removal. 
