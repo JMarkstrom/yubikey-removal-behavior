@@ -33,15 +33,16 @@ msiexec /i /qn "YubiKey Removal Behavior Tool.msi"
 
 ## 👮🏻 Administrative template (ADMX)
 The accompanying administrative template (ADMX) adds the option to control YubiKey removal behavior by setting a central (or local) GPO.
-The template is designed to augment the existing ```credentialprovider.admx``` with an additional setting. To use this template:
+To use this template with Microsoft Active Directory (or a local computer):
 
 1. Copy the ```.admx``` file to location: ```C:\Windows\PolicyDefinitions```
 2. Copy the ```.adml``` file to location: ```C:\Windows\PolicyDefinitions\en-US```
-3. Open the GPO editor (restart if open previously) and navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **System** > **Logon**
-4. Double-click on 'YubiKey removal behavior' and adjust settings as required
+3. Open the GPO editor (restart if open previously) and navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Yubico** >
+4. Double-click on 'YubiKey Removal Behavior' and adjust settings as required
 5. Click **Apply** and **OK**.
 
-**Note**: Since the setting applies to the computer object, computers must have read access to the GPO.
+**Note I**: Since the setting applies to the computer object, computers must have read access to the GPO.
+**Note I**: To use the ADMX with Intune, please refer to instructions on [swjm.blog](https://swjm.blog/locking-the-workstation-on-fido2-security-key-removal-part-2-80962c944c78)
 
 ## 📖 Usage
 By default (no configuration required), the application will _lock_ the workstation on YubiKey removal. 
@@ -81,5 +82,6 @@ Possible improvements includes:
 Any help on the above (see 'roadmap) is welcome.
 
 ## 📜 Release History
+* 2023.08.30 `v2.1` ADMX updated to support Intune
 * 2023.08.26 `v2.0` Added option to log out of computer
 * 2022.12.27 `v1.0` First release
