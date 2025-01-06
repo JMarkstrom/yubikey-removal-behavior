@@ -73,14 +73,15 @@ msiexec /qn /x "YubiKey Removal Behavior Tool.msi"
 
 ## 📖 Roadmap
 Possible improvements includes:
-- Using variables and/or relative paths in the installer (paths, registry keys)
-- Reducing overall footprint / size of of application
-- Code signing
+- ~~Using variables and/or relative paths in the installer (paths, registry keys)~~
+- ~~Reducing overall footprint / size of of application~~
+- ~~Code signing~~
 
 ## 🥷🏻 Contributing
 Any help on the above (see 'roadmap) is welcome.
 
 ## 📜 Release History
+* 2025.01.06 `v2.2` Reworked packaging to reduce size
 * 2023.08.30 `v2.1` ADMX updated to support Intune
 * 2023.08.26 `v2.0` Added option to log out of computer
 * 2022.12.27 `v1.0` First release
