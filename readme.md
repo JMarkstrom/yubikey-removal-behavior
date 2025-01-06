@@ -3,8 +3,6 @@
 # YubiKey Removal Behavior     
 
 
-Licensed under the Apache License, Version 2.0 (the "License").
-
 ## ℹ️ About
 The **YubiKey Removal Behavior** application is inspired by the native Windows "Smart Card Removal Behavior" feature and extends 
 a similar level of control to FIDO2 Security Keys (YubiKeys) by locking a compatible Windows workstation OR logging out the
