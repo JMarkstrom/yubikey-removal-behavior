@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/VSWorkspaceState.json
+/.vs/yubikey-removal-behavior/FileContentIndex
+/.vs/yubikey-removal-behavior/v17/.wsuo
+/.vs/yubikey-removal-behavior/v17/DocumentLayout.backup.json
+/.vs/yubikey-removal-behavior/v17/DocumentLayout.json
+/.vs/slnx.sqlite
