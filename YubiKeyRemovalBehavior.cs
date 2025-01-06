@@ -2,7 +2,7 @@
 ##########################################################################
 # YubiKey Removal Behavior     
 ##########################################################################
-* version: 2.1
+* version: 2.2
 * created by: Jonas Markström (https://swjm.blog)
 * last updated on: 2025-01-06 by Jonas Markström
 
