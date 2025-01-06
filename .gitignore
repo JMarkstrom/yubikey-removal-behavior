@@ -8,3 +8,6 @@
 /.vs/yubikey-removal-behavior/v17/DocumentLayout.backup.json
 /.vs/yubikey-removal-behavior/v17/DocumentLayout.json
 /.vs/slnx.sqlite
+/bin/x64/Release/net8.0/win-x64
+/Build Microsoft Installer/Release
+/obj
