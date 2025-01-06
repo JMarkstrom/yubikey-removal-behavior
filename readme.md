@@ -81,7 +81,7 @@ Possible improvements includes:
 Any help on the above (see 'roadmap) is welcome.
 
 ## 📜 Release History
-* 2025.01.06 `v2.2` Reworked packaging to reduce size
-* 2023.08.30 `v2.1` ADMX updated to support Intune
-* 2023.08.26 `v2.0` Added option to log out of computer
-* 2022.12.27 `v1.0` First release
+* 2025.01.06 `v2.2`
+* 2023.08.30 `v2.1`
+* 2023.08.26 `v2.0`
+* 2022.12.27 `v1.0`
