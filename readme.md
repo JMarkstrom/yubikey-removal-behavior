@@ -16,6 +16,7 @@ Control of the value is exercised using Group Policy, Registry or MDM.
 
 ⚠️ This application is provided "as-is" without any warranty of any kind, either expressed or implied.
 
+**Note**: For cross-platform use, consider [Sciber YubiKey Locker](https://github.com/sciber-io/yubikey-locker)
 
 ## 💻 Prerequisites
 The YubiKey Removal Behavior application is supported on ```64 bit``` **Windows 10** and **Windows 11**. 
