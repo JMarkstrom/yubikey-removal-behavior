@@ -2,7 +2,7 @@
 ##########################################################################
 # YubiKey Removal Behavior     
 ##########################################################################
-* version: 2.0.1
+* version: 2.1
 * created by: Jonas Markström (https://swjm.blog)
 * last updated on: 2025-01-06 by Jonas Markström
 
@@ -18,7 +18,7 @@
 * 
 * The registry key is set either by an MSI installer and/or using Group Policy.
 *
-* Licensed under the Apache License, Version 2.0 (the "License").
+* Licensed under BSD 2-Clause License.
 * You may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
 *
