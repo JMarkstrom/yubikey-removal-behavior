@@ -27,7 +27,7 @@ Run the provided MSI (no interaction is required) and reboot the computer for ch
 Here is an example of a running the installer from command line: 
 
 ```bash
-msiexec /i /qn "YubiKey Removal Behavior Tool.msi"
+msiexec /i /qn "YubiKey-Removal-Behavior.msi"
 ```
 
 ## 👮🏻 Administrative template (ADMX)
@@ -67,7 +67,7 @@ The application can be uninstalled from **Add/Remove Programs**, using **GPO** o
 Here is an example of uninstalling from command line: 
 
 ```bash
-msiexec /qn /x "YubiKey Removal Behavior Tool.msi"
+msiexec /qn /x "YubiKey-Removal-Behavior.msi"
 ```
 
 ## 📖 Roadmap
