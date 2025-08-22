@@ -34,6 +34,8 @@
 *
 */
 
+using System.Threading;
+
 namespace Yubico;
 
 // Class that listens for YubiKey removal events and takes action when a YubiKey is removed

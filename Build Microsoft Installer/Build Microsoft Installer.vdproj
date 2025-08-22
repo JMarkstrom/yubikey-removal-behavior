@@ -193,15 +193,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:YubiKey Removal Behavior"
-        "ProductCode" = "8:{AD64A1CA-E63E-4FFE-B809-207F71E155EB}"
-        "PackageCode" = "8:{A84997CE-F2C0-4B19-B070-915A96D9745A}"
+        "ProductCode" = "8:{470D52BB-EE00-4CC8-8ACC-13AA92E2DA87}"
+        "PackageCode" = "8:{1C23A79B-9F2C-49A1-85D5-D0FF262F69B5}"
         "UpgradeCode" = "8:{13853885-CAE0-486C-AAC2-328937BC7A84}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:2.2"
+        "ProductVersion" = "8:2.3"
         "Manufacturer" = "8:SWJM"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/JMarkstrom"
@@ -794,7 +794,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_883B88A493B846A4BB7A55939C9DC50A"
             {
-            "SourcePath" = "8:..\\obj\\x64\\Release\\net8.0\\win-x64\\apphost.exe"
+            "SourcePath" = "8:..\\obj\\x64\\Release\\net8.0-windows10.0.17763.0\\win-x64\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3AF8E56B852740BF9AE178AD9C4CA00A"
