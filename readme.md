@@ -4,7 +4,7 @@
 
 
 ## ℹ️ About
-The **YubiKey Removal Behavior** application is inspired by the native Windows "Smart Card Removal Behavior" feature and extends 
+The **YubiKey Removal Behavior** (YKRB) application is inspired by the native Windows "Smart Card Removal Behavior" feature and extends 
 a similar level of control to FIDO2 Security Keys (YubiKeys) by locking a compatible Windows workstation OR logging out the
 currently logged in user(s) when a YubiKey is removed. It does this by monitoring for YubiKey removal events and checking the 
 value of the ```removalOption``` registry key:
