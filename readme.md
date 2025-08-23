@@ -55,6 +55,7 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Yubico\YubiKey Removal Behavior]
 "removalOption"="lock"
+```
 
 ## 📖 Usage
 By default (no configuration required), the application will _lock_ the workstation on YubiKey removal. 
