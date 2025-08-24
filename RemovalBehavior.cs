@@ -2,9 +2,9 @@
 ##########################################################################
 # YubiKey Removal Behavior     
 ##########################################################################
-* version: 2.2
+* version: 2.3
 * created by: Jonas Markström (https://swjm.blog)
-* last updated on: 2025-01-06 by Jonas Markström
+* last updated on: 2025-08-24 by Jonas Markström
 
 * see readme.md for more info.
 *
@@ -36,18 +36,24 @@
 
 namespace Yubico
 {
+    using System;
     using System.Runtime.InteropServices;
     using Microsoft.Win32;
     using Yubico.YubiKey;
+    using System.Diagnostics;
 
     public class RemovalBehavior
     {
 
         // Registry key that stores the service settings, e.g. whether the service is enabled or not
         private const string REGISTRY_KEY = @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Yubico\YubiKey Removal Behavior";
+        
+        // Event log source name for YubiKey removal events
+        private const string EVENT_LOG_SOURCE = "YubiKey Removal Behavior";
+        private const string EVENT_LOG_NAME = "Application";
 
         // Import the LockWorkStation AND ExitWindows methods from the user32.dll library
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll", SetLastError = true)]
         public static extern void LockWorkStation();
 
         [DllImport("user32.dll", SetLastError = true)]
@@ -70,18 +76,47 @@ namespace Yubico
             if (removalOption == "lock")
             {
                 // Lock the workstation on YubiKey removal if the value in registry is 'lock'
+                LogAction("YubiKey removed: LOCKING workstation!");
                 LockWorkStation();
             }
-
             else if (removalOption == "logout")
             {
-
                 // Log out the current user if value in registry is 'logout'.
+                LogAction("YubiKey removed: LOGGING OFF current user!");
                 ExitWindowsEx(0 | 0x00000004, 0);
-
-                // If there is any other value, the application does nothing!
             }
+            else
+            {
+                // If there is any other value, the application does nothing!
+                LogWarning($"YubiKey removed: NO action taken (removalOption: {removalOption})");
+            }
+        }
+        
+                
+        /// Logs the action taken due to YubiKey removal
+        private void LogAction(string action)
+        {
+            try
+            {
+                EventLog.WriteEntry(EVENT_LOG_SOURCE, action, EventLogEntryType.Information);
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+        
+        /// Logs warning events to Windows Event Viewer
+        private void LogWarning(string warning)
+        {
+            try
+            {
+                EventLog.WriteEntry(EVENT_LOG_SOURCE, warning, EventLogEntryType.Warning);
+            }
+            catch (Exception)
+            {
 
+            }
         }
     }
 }
