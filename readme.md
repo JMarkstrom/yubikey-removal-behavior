@@ -4,7 +4,7 @@
 
 
 ## ℹ️ About
-The **YubiKey Removal Behavior** application is inspired by the native Windows "Smart Card Removal Behavior" feature and extends 
+The **YubiKey Removal Behavior** (YKRB) application is inspired by the native Windows "Smart Card Removal Behavior" feature and extends 
 a similar level of control to FIDO2 Security Keys (YubiKeys) by locking a compatible Windows workstation OR logging out the
 currently logged in user(s) when a YubiKey is removed. It does this by monitoring for YubiKey removal events and checking the 
 value of the ```removalOption``` registry key:
@@ -19,7 +19,7 @@ Control of the value is exercised using Group Policy, Registry or MDM.
 **Note**: For cross-platform use, consider [Sciber YubiKey Locker](https://github.com/sciber-io/yubikey-locker)
 
 ## 💻 Prerequisites
-The YubiKey Removal Behavior application is supported on ```64 bit``` **Windows 10** and **Windows 11**. 
+The YubiKey Removal Behavior (YKRB) application is supported on ```64 bit``` **Windows 10** and **Windows 11**. 
 
 ## 💾 Installation
 Run the provided MSI (no interaction is required) and reboot the computer for changes to take effect.
@@ -41,6 +41,21 @@ To use this template with Microsoft Active Directory (or a local computer):
 5. Click **Apply** and **OK**.
 
 **Note**: To use the ADMX with Intune, please refer to instructions on [swjm.blog](https://swjm.blog/locking-the-workstation-on-fido2-security-key-removal-part-2-80962c944c78)
+
+## ⚙️ Registry Keys
+
+The YKRB installer creates the following registry entries.  
+(You can modify these directly if needed, though using supported tools is recommended.)
+
+```reg
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
+"YubiKey Removal Behavior"="C:\\Program Files (x86)\\Yubico\\YubiKey Removal Behavior\\YubiKeyRemovalBehavior.exe"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Yubico\YubiKey Removal Behavior]
+"removalOption"="lock"
+```
 
 ## 📖 Usage
 By default (no configuration required), the application will _lock_ the workstation on YubiKey removal. 
