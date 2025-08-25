@@ -42,81 +42,74 @@ namespace Yubico
     using Yubico.YubiKey;
     using System.Diagnostics;
 
+
+
+    internal static class EventIds
+{
+    public const int APP_STARTED       = unchecked((int)0x40010001);
+    public const int APP_STOPPED       = unchecked((int)0x40010002);
+    public const int REMOVED_LOCK      = unchecked((int)0x40010100);
+    public const int REMOVED_LOGOUT    = unchecked((int)0x40010101);
+    public const int REMOVED_NOACTION  = unchecked((int)0x80010102);
+}
     public class RemovalBehavior
     {
-
-        // Registry key that stores the service settings, e.g. whether the service is enabled or not
+        // Policy path for settings (value name: "removalOption")
         private const string REGISTRY_KEY = @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Yubico\YubiKey Removal Behavior";
-        
-        // Event log source name for YubiKey removal events
-        private const string EVENT_LOG_SOURCE = "YubiKey Removal Behavior";
-        private const string EVENT_LOG_NAME = "Application";
 
-        // Import the LockWorkStation AND ExitWindows methods from the user32.dll library
+        // Event Log source (must be created by MSI and mapped to your message DLL)
+        private const string EVENT_LOG_SOURCE = "YubiKey Removal Behavior";
+
         [DllImport("user32.dll", SetLastError = true)]
         public static extern void LockWorkStation();
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern bool ExitWindowsEx(uint uFlags, uint dwReason);
 
-        // Set the Device Listener from Yubico SDK
-        private YubiKeyDeviceListener yubiKeyDeviceListener = YubiKeyDeviceListener.Instance;
+        private readonly YubiKeyDeviceListener yubiKeyDeviceListener = YubiKeyDeviceListener.Instance;
 
         public RemovalBehavior()
         {
-            // Register the YubiKeyRemoved method as the event handler for the Removed event
+            // Log app starting to Event Viewer
+            LogEvent(EventLogEntryType.Information, EventIds.APP_STARTED);
             yubiKeyDeviceListener.Removed += YubiKeyRemoved;
         }
 
         private void YubiKeyRemoved(object? sender, YubiKeyDeviceEventArgs eventArgs)
         {
-            // Retrieve the value of the "removalOption" registry key
-            string removalOption = (string)Registry.GetValue(REGISTRY_KEY, "removalOption", "lock");
+            string removalOption = (string)(Registry.GetValue(REGISTRY_KEY, "removalOption", "lock") ?? "lock");
 
-            if (removalOption == "lock")
+            if (string.Equals(removalOption, "lock", StringComparison.OrdinalIgnoreCase))
             {
-                // Lock the workstation on YubiKey removal if the value in registry is 'lock'
-                LogAction("YubiKey removed: LOCKING workstation!");
+                // Log removed with lock workstation action to Event Viewer
+                LogEvent(EventLogEntryType.Information, EventIds.REMOVED_LOCK);
                 LockWorkStation();
             }
-            else if (removalOption == "logout")
+            else if (string.Equals(removalOption, "logout", StringComparison.OrdinalIgnoreCase))
             {
-                // Log out the current user if value in registry is 'logout'.
-                LogAction("YubiKey removed: LOGGING OFF current user!");
-                ExitWindowsEx(0 | 0x00000004, 0);
+                // Log removed with logout workstation action to Event Viewer
+                LogEvent(EventLogEntryType.Information, EventIds.REMOVED_LOGOUT);
+                ExitWindowsEx(0x00000000 | 0x00000004, 0);       // EWX_LOGOFF | EWX_FORCEIFHUNG
             }
             else
             {
-                // If there is any other value, the application does nothing!
-                LogWarning($"YubiKey removed: NO action taken (removalOption: {removalOption})");
+                // Log removed with no action to Event Viewer
+                LogEvent(EventLogEntryType.Warning, EventIds.REMOVED_NOACTION, removalOption);
             }
         }
-        
-                
-        /// Logs the action taken due to YubiKey removal
-        private void LogAction(string action)
-        {
-            try
-            {
-                EventLog.WriteEntry(EVENT_LOG_SOURCE, action, EventLogEntryType.Information);
-            }
-            catch (Exception)
-            {
-                
-            }
-        }
-        
-        /// Logs warning events to Windows Event Viewer
-        private void LogWarning(string warning)
-        {
-            try
-            {
-                EventLog.WriteEntry(EVENT_LOG_SOURCE, warning, EventLogEntryType.Warning);
-            }
-            catch (Exception)
-            {
 
+        private static void LogEvent(EventLogEntryType type, int messageId, params string[] inserts)
+        {
+            try
+            {
+                var instance = new EventInstance(messageId, 0, type);
+                object[] parameters = inserts?.Length > 0
+                    ? Array.ConvertAll(inserts, s => (object)s)
+                    : Array.Empty<object>();
+                EventLog.WriteEvent(EVENT_LOG_SOURCE, instance, parameters);
             }
+            catch { /* TODO optional: file fallback */ }
         }
+
     }
 }

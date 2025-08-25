@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_56B7F1C4A8E04FE6BBEE4D3251B4B809"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_883B88A493B846A4BB7A55939C9DC50A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -117,6 +123,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_56B7F1C4A8E04FE6BBEE4D3251B4B809"
+            {
+            "SourcePath" = "8:..\\messages\\YkrbMsg64.dll"
+            "TargetName" = "8:YkrbMsg64.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3AF8E56B852740BF9AE178AD9C4CA00A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DB9A071BA8EC4D91AE00A8CF41B61849"
             {
             "SourcePath" = "8:..\\icon.ico"
@@ -145,9 +171,9 @@
         {
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_3AF8E56B852740BF9AE178AD9C4CA00A"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder]\\Yubico\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder]\\Yubico\\[ProductName]"
             "Name" = "8:#1925"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:TARGETDIR"
@@ -180,6 +206,13 @@
         }
         "LaunchCondition"
         {
+            "{836E08B8-0285-4809-BA42-01DB6754A45D}:_3C5E30F845B145CA956A0D7DA251D15B"
+            {
+            "Name" = "8:VersionNT64"
+            "Condition" = "8:VersionNT64"
+            "Message" = "8:\"This application requires a 64-bit version of Windows.\""
+            "InstallUrl" = "8:"
+            }
         }
         "Locator"
         {
@@ -193,8 +226,8 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:YubiKey Removal Behavior"
-        "ProductCode" = "8:{470D52BB-EE00-4CC8-8ACC-13AA92E2DA87}"
-        "PackageCode" = "8:{1C23A79B-9F2C-49A1-85D5-D0FF262F69B5}"
+        "ProductCode" = "8:{E9909C07-EBEC-4E53-A82C-8B5DD8C3F034}"
+        "PackageCode" = "8:{DBDFAF32-B80F-4784-AC34-3F9EA37E90B3}"
         "UpgradeCode" = "8:{13853885-CAE0-486C-AAC2-328937BC7A84}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -346,6 +379,106 @@
                                                             "ValueTypes" = "3:1"
                                                             "Value" = "8:[ProgramFilesFolder]Yubico\\[ProductName]\\YubiKeyRemovalBehavior.exe"
                                                             }
+                                                        }
+                                                    }
+                                                }
+                                                "Values"
+                                                {
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_E751752E74204D6E96D170B4F4DCAEB5"
+                    {
+                    "Name" = "8:SYSTEM"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_F4D703DDC13C4A6DAF72D040E9A1526D"
+                            {
+                            "Name" = "8:CurrentControlSet"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_65267B8CF5884A2F9F3D4BA4D5AFF3D1"
+                                    {
+                                    "Name" = "8:Services"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_6E0BD5AFB8124154A2CDC1F5EFFFAC77"
+                                            {
+                                            "Name" = "8:EventLog"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_4CB7E525E5914EDF89270B55DF9D1684"
+                                                    {
+                                                    "Name" = "8:Application"
+                                                    "Condition" = "8:"
+                                                    "AlwaysCreate" = "11:FALSE"
+                                                    "DeleteAtUninstall" = "11:FALSE"
+                                                    "Transitive" = "11:FALSE"
+                                                        "Keys"
+                                                        {
+                                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_03231309B7D848AABF8ADFC60E9D4468"
+                                                            {
+                                                            "Name" = "8:[ProductName]"
+                                                            "Condition" = "8:"
+                                                            "AlwaysCreate" = "11:FALSE"
+                                                            "DeleteAtUninstall" = "11:FALSE"
+                                                            "Transitive" = "11:FALSE"
+                                                                "Keys"
+                                                                {
+                                                                }
+                                                                "Values"
+                                                                {
+                                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_A43B65672BB246518BBEC2CA6D20D403"
+                                                                    {
+                                                                    "Name" = "8:TypesSupported"
+                                                                    "Condition" = "8:"
+                                                                    "Transitive" = "11:FALSE"
+                                                                    "ValueTypes" = "3:3"
+                                                                    "Value" = "3:7"
+                                                                    }
+                                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_BC732C9A08AB4CECB3B69B93A7AB4D97"
+                                                                    {
+                                                                    "Name" = "8:EventMessageFile"
+                                                                    "Condition" = "8:"
+                                                                    "Transitive" = "11:FALSE"
+                                                                    "ValueTypes" = "3:2"
+                                                                    "Value" = "8:[ProgramFiles64Folder]Yubico\\[ProductName]\\YkrbMsg64.dll"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        "Values"
+                                                        {
                                                         }
                                                     }
                                                 }
@@ -794,7 +927,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_883B88A493B846A4BB7A55939C9DC50A"
             {
-            "SourcePath" = "8:..\\obj\\x64\\Release\\net8.0-windows10.0.17763.0\\win-x64\\apphost.exe"
+            "SourcePath" = "8:"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3AF8E56B852740BF9AE178AD9C4CA00A"

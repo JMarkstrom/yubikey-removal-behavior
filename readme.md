@@ -51,11 +51,14 @@ The YKRB installer creates the following registry entries.
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
-"YubiKey Removal Behavior"="C:\\Program Files (x86)\\Yubico\\YubiKey Removal Behavior\\YubiKeyRemovalBehavior.exe"
+"YubiKey Removal Behavior"="C:\\Program Files\\Yubico\\YubiKey Removal Behavior\\YubiKeyRemovalBehavior.exe"
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Yubico\YubiKey Removal Behavior]
 "removalOption"="lock"
 ```
+
+## Event Viewer integration
+The YKRB application logs removal events to the Windows Event Log, under **Windows Logs** > **Application** > **YubiKey Removal Behavior** (source).
 
 ## 📖 Usage
 By default (no configuration required), the application will _lock_ the workstation on YubiKey removal. 
@@ -99,6 +102,7 @@ Donations will support costs such as domain registration and code signing (plann
 
 
 ## 📜 Release History
+* 2025.08.24 `v2.3`
 * 2025.01.06 `v2.2`
 * 2023.08.30 `v2.1`
 * 2023.08.26 `v2.0`
