@@ -55,6 +55,16 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Yubico\YubiKey Removal Behavior]
 "removalOption"="lock"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\YubiKey Removal Behavior]
+"TypesSupported"=dword:00000007
+"EventMessageFile"=hex(2):43,00,3a,00,5c,00,50,00,72,00,6f,00,67,00,72,00,61,\
+  00,6d,00,20,00,46,00,69,00,6c,00,65,00,73,00,5c,00,59,00,75,00,62,00,69,00,\
+  63,00,6f,00,5c,00,59,00,75,00,62,00,69,00,4b,00,65,00,79,00,20,00,52,00,65,\
+  00,6d,00,6f,00,76,00,61,00,6c,00,20,00,42,00,65,00,68,00,61,00,76,00,69,00,\
+  6f,00,72,00,5c,00,59,00,6b,00,72,00,62,00,4d,00,73,00,67,00,36,00,34,00,2e,\
+  00,64,00,6c,00,6c,00,00,00
+
 ```
 
 ## Event Viewer integration
