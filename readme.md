@@ -58,7 +58,17 @@ Windows Registry Editor Version 5.00
 ```
 
 ## Event Viewer integration
-The YKRB application logs removal events to the Windows Event Log, under **Windows Logs** > **Application** > **YubiKey Removal Behavior** (source).
+The YKRB application logs removal events to the Windows Event Log, under **Windows Logs** > **Application** > **YubiKey Removal Behavior** (source).   
+The following events are logged:
+
+---------------------------------------------------------------------------
+| Event ID | Description                                    | Level       |
+|----------|------------------------------------------------|-------------|
+| 1        | Application started                            | Information |
+| 256      | YubiKey removed (locking the workstation)      | Information |
+| 257      | YubiKey removed (logging off the current user) | Information |
+---------------------------------------------------------------------------
+
 
 ## 📖 Usage
 By default (no configuration required), the application will _lock_ the workstation on YubiKey removal. 
