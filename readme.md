@@ -20,7 +20,7 @@ Control of the value is exercised using Group Policy, Registry or MDM (Intune).
 ## 💻 Prerequisites
 The YubiKey Removal Behavior (YKRB) application is supported on ```64 bit``` **Windows 10** and **Windows 11**. 
 
-## 💾 Installation
+## 💾 Installation & Removal
 Run the provided MSI (no interaction is required) and reboot the computer for changes to take effect.
 
 Here is an example of a running the installer from command line: 
@@ -28,7 +28,6 @@ Here is an example of a running the installer from command line:
 ```bash
 msiexec /i /qn "YubiKey-Removal-Behavior.msi"
 ```
-## 💾 Uninstalling the app
 The application can be uninstalled from **Add/Remove Programs**, using **GPO** or **MDM**.
 
 Here is an example of uninstalling from command line: 
@@ -36,7 +35,7 @@ Here is an example of uninstalling from command line:
 ```bash
 msiexec /qn /x "YubiKey-Removal-Behavior.msi"
 ```
-## 🛠️ Configuring and Monitoring the application
+## 🛠️ Configuring & Monitoring the application
 
 ### 👮🏻 Administrative template (ADMX)
 The accompanying administrative template (ADMX) adds the option to control YubiKey removal behavior by setting a central (or local) GPO.
