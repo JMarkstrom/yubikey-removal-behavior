@@ -50,12 +50,15 @@ The YKRB installer creates the following registry entries.
 ```reg
 Windows Registry Editor Version 5.00
 
+; Add application to startup
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
 "YubiKey Removal Behavior"="C:\\Program Files\\Yubico\\YubiKey Removal Behavior\\YubiKeyRemovalBehavior.exe"
 
+; Removal behavior options: "lock", "logout", "disabled"
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Yubico\YubiKey Removal Behavior]
 "removalOption"="lock"
 
+; Event Log source registration
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\YubiKey Removal Behavior]
 "TypesSupported"=dword:00000007
 "EventMessageFile"=hex(2):43,00,3a,00,5c,00,50,00,72,00,6f,00,67,00,72,00,61,\
