@@ -2,7 +2,6 @@
 
 # YubiKey Removal Behavior     
 
-
 ## ℹ️ About
 The **YubiKey Removal Behavior** (YKRB) application is inspired by the native Windows "Smart Card Removal Behavior" feature and extends 
 a similar level of control to FIDO2 Security Keys (YubiKeys) by locking a compatible Windows workstation OR logging out the
@@ -12,7 +11,7 @@ value of the ```removalOption``` registry key:
 - If the value is set to ```lock```, the application will lock the workstation
 - If the value is set to ```logout```, the application will log out the user(s)
 
-Control of the value is exercised using Group Policy, Registry or MDM.
+Control of the value is exercised using Group Policy, Registry or MDM (Intune).
 
 ⚠️ This application is provided "as-is" without any warranty of any kind, either expressed or implied.
 
@@ -29,8 +28,17 @@ Here is an example of a running the installer from command line:
 ```bash
 msiexec /i /qn "YubiKey-Removal-Behavior.msi"
 ```
+## 💾 Uninstalling the app
+The application can be uninstalled from **Add/Remove Programs**, using **GPO** or **MDM**.
 
-## 👮🏻 Administrative template (ADMX)
+Here is an example of uninstalling from command line: 
+
+```bash
+msiexec /qn /x "YubiKey-Removal-Behavior.msi"
+```
+## 🛠️ Configuring and Monitoring the application
+
+### 👮🏻 Administrative template (ADMX)
 The accompanying administrative template (ADMX) adds the option to control YubiKey removal behavior by setting a central (or local) GPO.
 To use this template with Microsoft Active Directory (or a local computer):
 
@@ -42,7 +50,7 @@ To use this template with Microsoft Active Directory (or a local computer):
 
 **Note**: To use the ADMX with Intune, please refer to instructions on [swjm.blog](https://swjm.blog/locking-the-workstation-on-fido2-security-key-removal-part-2-80962c944c78)
 
-## ⚙️ Registry Keys
+### ⚙️ Registry Keys
 
 The YKRB installer creates the following registry entries.  
 (You can modify these directly if needed, though using supported tools is recommended.)
@@ -69,8 +77,7 @@ Windows Registry Editor Version 5.00
   00,64,00,6c,00,6c,00,00,00
 
 ```
-
-## 🗊 Event Viewer integration
+### 📊 Event Viewer integration
 The YKRB application logs removal events to the Windows Event Log, under **Windows Logs** > **Application** > **YubiKey Removal Behavior** (source). The following events are logged:
 
 ----------------------------------------------------------------------------------------------
@@ -79,8 +86,8 @@ The YKRB application logs removal events to the Windows Event Log, under **Windo
 | 1        | Application started.                                              | Information |
 | 256      | YubiKey removed (locking the workstation).                        | Information |
 | 257      | YubiKey removed (logging off the current user).                   | Information |
+| 258      | YubiKey removed with no action taken.                             | Information |
 ----------------------------------------------------------------------------------------------
-
 
 ## 📖 Usage
 By default (no configuration required), the application will _lock_ the workstation on YubiKey removal. 
@@ -96,19 +103,10 @@ _Note further with regards to U/X:_
 #### Removal using NFC reader
 _With NFC it is possible to achieve a "tap 'n go" type user experience:_
 
-⚠️ If you are using NFC you MUST set application behavior to ```Log out user(s)``` (registry value ```logout```) else you will be logged out immediately on login(!)
+⚠️ If you are using NFC you MUST set application behavior to ```Log out user(s)``` (registry value: ```logout```) else you will be logged out immediately on login(!)
 
 - To log out, the user "taps" or places the YubiKey on the NFC reader.
 - To log back in, the user will place the YubiKey on the NFC reader and provide PIN.
-
-## 💾 Uninstalling the app
-The application can be uninstalled from **Add/Remove Programs**, using **GPO** or **MDM**.
-
-Here is an example of uninstalling from command line: 
-
-```bash
-msiexec /qn /x "YubiKey-Removal-Behavior.msi"
-```
 
 ## 📖 Roadmap
 Possible improvements includes:

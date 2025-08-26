@@ -50,7 +50,7 @@ namespace Yubico
     public const int APP_STOPPED       = unchecked((int)0x40010002);
     public const int REMOVED_LOCK      = unchecked((int)0x40010100);
     public const int REMOVED_LOGOUT    = unchecked((int)0x40010101);
-    public const int REMOVED_NOACTION  = unchecked((int)0x80010102);
+    public const int REMOVED_NOACTION  = unchecked((int)0x40010102);
 }
     public class RemovalBehavior
     {
@@ -77,26 +77,33 @@ namespace Yubico
 
         private void YubiKeyRemoved(object? sender, YubiKeyDeviceEventArgs eventArgs)
         {
-            string removalOption = (string)(Registry.GetValue(REGISTRY_KEY, "removalOption", "lock") ?? "lock");
+            // Return null if the value is missing or not a string
+            object? raw = Registry.GetValue(REGISTRY_KEY, "removalOption", null);
+            string? removalOption = Convert.ToString(raw)?.Trim();
 
-            if (string.Equals(removalOption, "lock", StringComparison.OrdinalIgnoreCase))
+            switch (removalOption?.ToLowerInvariant())
             {
-                // Log removed with lock workstation action to Event Viewer
-                LogEvent(EventLogEntryType.Information, EventIds.REMOVED_LOCK);
-                LockWorkStation();
-            }
-            else if (string.Equals(removalOption, "logout", StringComparison.OrdinalIgnoreCase))
-            {
-                // Log removed with logout workstation action to Event Viewer
-                LogEvent(EventLogEntryType.Information, EventIds.REMOVED_LOGOUT);
-                ExitWindowsEx(0x00000000 | 0x00000004, 0);       // EWX_LOGOFF | EWX_FORCEIFHUNG
-            }
-            else
-            {
-                // Log removed with no action to Event Viewer
-                LogEvent(EventLogEntryType.Warning, EventIds.REMOVED_NOACTION, removalOption);
+                case "lock":
+                    // Log removed with lock workstation action to Event Viewer
+                    LogEvent(EventLogEntryType.Information, EventIds.REMOVED_LOCK);
+                    // Lock the workstation
+                    LockWorkStation();
+                    break;
+
+                case "logout":
+                    // Log removed with logout workstation action to Event Viewer
+                    LogEvent(EventLogEntryType.Information, EventIds.REMOVED_LOGOUT);
+                    // Exit Windows
+                    ExitWindowsEx(0x00000000 | 0x00000010, 0);
+                    break;
+
+                default:
+                    // Log missing or unsupported value to Event Viewer
+                    LogEvent(EventLogEntryType.Information, EventIds.REMOVED_NOACTION);
+                    break;
             }
         }
+
 
         private static void LogEvent(EventLogEntryType type, int messageId, params string[] inserts)
         {
@@ -108,7 +115,7 @@ namespace Yubico
                     : Array.Empty<object>();
                 EventLog.WriteEvent(EVENT_LOG_SOURCE, instance, parameters);
             }
-            catch { /* TODO optional: file fallback */ }
+            catch { /* TODO optional: fallback to log file */ }
         }
 
     }

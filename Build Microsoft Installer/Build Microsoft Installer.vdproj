@@ -227,7 +227,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:YubiKey Removal Behavior"
         "ProductCode" = "8:{E9909C07-EBEC-4E53-A82C-8B5DD8C3F034}"
-        "PackageCode" = "8:{DBDFAF32-B80F-4784-AC34-3F9EA37E90B3}"
+        "PackageCode" = "8:{07C6BAFB-81E7-4A27-AC4D-E499EE522B18}"
         "UpgradeCode" = "8:{13853885-CAE0-486C-AAC2-328937BC7A84}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -377,7 +377,7 @@
                                                             "Condition" = "8:"
                                                             "Transitive" = "11:FALSE"
                                                             "ValueTypes" = "3:1"
-                                                            "Value" = "8:[ProgramFilesFolder]Yubico\\[ProductName]\\YubiKeyRemovalBehavior.exe"
+                                                            "Value" = "8:[ProgramFiles64Folder]Yubico\\[ProductName]\\YubiKeyRemovalBehavior.exe"
                                                             }
                                                         }
                                                     }

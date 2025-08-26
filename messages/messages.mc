@@ -57,9 +57,9 @@ YubiKey removed (logging off the current user).
 .
 
 MessageId=0x0102
-Severity=Warning
+Severity=Informational
 Facility=YubiKey
 SymbolicName=MSG_REMOVED_NOACTION
 Language=English
-YubiKey removed with no action taken (removalOption: %1).
+YubiKey removed with no action taken.
 .
