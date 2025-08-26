@@ -22,7 +22,7 @@ The YubiKey Removal Behavior (YKRB) application is supported on ```64 bit``` **W
 
 ## 💾 Installing and Removing the app
 
-### Installing the app
+### ✅ Installing the app
 Run the provided MSI (no interaction is required) and reboot the computer for changes to take effect.
 
 Here is an example of a running the installer from command line: 
@@ -30,7 +30,7 @@ Here is an example of a running the installer from command line:
 ```bash
 msiexec /i /qn "YubiKey-Removal-Behavior.msi"
 ```
-### Uninstalling the app
+### 🟥 Uninstalling the app
 The application can be uninstalled from **Add/Remove Programs**, using **GPO** or **MDM**.
 
 Here is an example of uninstalling from command line: 
