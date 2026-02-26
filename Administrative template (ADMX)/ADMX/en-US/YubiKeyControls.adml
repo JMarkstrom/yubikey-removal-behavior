@@ -14,6 +14,7 @@ OPTIONS:
 -----------
 - Lock workstation
 - Log out user(s)
+- Do nothing (disabled)
 
 
 NOTE: For the setting to take effect you will need to also install the 'YubiKey Removal Behavior' tool on target system(s).

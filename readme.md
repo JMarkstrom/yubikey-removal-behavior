@@ -1,4 +1,4 @@
-﻿readme.md
+readme.md
 
 # YubiKey Removal Behavior     
 
@@ -10,6 +10,7 @@ value of the ```removalOption``` registry key:
 
 - If the value is set to ```lock```, the application will lock the workstation
 - If the value is set to ```logout```, the application will log out the user(s)
+- If the value is set to ```disabled```, the application will take no action
 
 Control of the value is exercised using Group Policy, Registry or MDM (Intune).
 
@@ -89,6 +90,8 @@ The YKRB application logs removal events to the Windows Event Log, under **Windo
 | 256      | YubiKey removed (locking the workstation).                        | Information |
 | 257      | YubiKey removed (logging off the current user).                   | Information |
 | 258      | YubiKey removed with no action taken.                             | Information |
+| 259      | Failed to lock the workstation (includes Win32 error code).       | Warning     |
+| 260      | Failed to log off the user (includes Win32 error code).           | Warning     |
 ----------------------------------------------------------------------------------------------
 
 ## 📖 Usage

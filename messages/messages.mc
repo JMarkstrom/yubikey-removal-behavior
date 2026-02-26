@@ -63,3 +63,19 @@ SymbolicName=MSG_REMOVED_NOACTION
 Language=English
 YubiKey removed with no action taken.
 .
+
+MessageId=0x0103
+Severity=Warning
+Facility=YubiKey
+SymbolicName=MSG_LOCK_FAILED
+Language=English
+Failed to lock the workstation (Win32 error %1).
+.
+
+MessageId=0x0104
+Severity=Warning
+Facility=YubiKey
+SymbolicName=MSG_LOGOUT_FAILED
+Language=English
+Failed to log off the user (Win32 error %1).
+.

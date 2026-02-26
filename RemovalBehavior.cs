@@ -1,4 +1,4 @@
-﻿/*
+/*
 ##########################################################################
 # YubiKey Removal Behavior     
 ##########################################################################
@@ -18,11 +18,7 @@
 * 
 * The registry key is set either by an MSI installer and/or using Group Policy.
 *
-* Licensed under BSD 2-Clause License.
-* You may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
+* Licensed under BSD 2-Clause License. See LICENSE file for details.
 *
 ****************************************************************************
 * DISCLAIMER: Unless required by applicable law or agreed to in writing, 
@@ -45,13 +41,15 @@ namespace Yubico
 
 
     internal static class EventIds
-{
-    public const int APP_STARTED       = unchecked((int)0x40010001);
-    public const int APP_STOPPED       = unchecked((int)0x40010002);
-    public const int REMOVED_LOCK      = unchecked((int)0x40010100);
-    public const int REMOVED_LOGOUT    = unchecked((int)0x40010101);
-    public const int REMOVED_NOACTION  = unchecked((int)0x40010102);
-}
+    {
+        public const int APP_STARTED       = unchecked((int)0x40010001);
+        public const int APP_STOPPED       = unchecked((int)0x40010002);
+        public const int REMOVED_LOCK      = unchecked((int)0x40010100);
+        public const int REMOVED_LOGOUT    = unchecked((int)0x40010101);
+        public const int REMOVED_NOACTION  = unchecked((int)0x40010102);
+        public const int LOCK_FAILED       = unchecked((int)0x80010103);
+        public const int LOGOUT_FAILED     = unchecked((int)0x80010104);
+    }
     public class RemovalBehavior
     {
         // Policy path for settings (value name: "removalOption")
@@ -61,10 +59,13 @@ namespace Yubico
         private const string EVENT_LOG_SOURCE = "YubiKey Removal Behavior";
 
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern void LockWorkStation();
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool LockWorkStation();
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern bool ExitWindowsEx(uint uFlags, uint dwReason);
+
+        private const uint EWX_LOGOFF = 0x00;
 
         private readonly YubiKeyDeviceListener yubiKeyDeviceListener = YubiKeyDeviceListener.Instance;
 
@@ -77,29 +78,31 @@ namespace Yubico
 
         private void YubiKeyRemoved(object? sender, YubiKeyDeviceEventArgs eventArgs)
         {
-            // Return null if the value is missing or not a string
-            object? raw = Registry.GetValue(REGISTRY_KEY, "removalOption", null);
-            string? removalOption = Convert.ToString(raw)?.Trim();
+            string option = Registry.GetValue(REGISTRY_KEY, "removalOption", null) as string
+                            ?? "lock";
 
-            switch (removalOption?.ToLowerInvariant())
+            switch (option.ToLowerInvariant())
             {
-                case "lock":
-                    // Log removed with lock workstation action to Event Viewer
-                    LogEvent(EventLogEntryType.Information, EventIds.REMOVED_LOCK);
-                    // Lock the workstation
-                    LockWorkStation();
-                    break;
-
                 case "logout":
-                    // Log removed with logout workstation action to Event Viewer
                     LogEvent(EventLogEntryType.Information, EventIds.REMOVED_LOGOUT);
-                    // Exit Windows
-                    ExitWindowsEx(0x00000000 | 0x00000010, 0);
+                    if (!ExitWindowsEx(EWX_LOGOFF, 0))
+                    {
+                        int err = Marshal.GetLastWin32Error();
+                        LogEvent(EventLogEntryType.Warning, EventIds.LOGOUT_FAILED, err.ToString());
+                    }
                     break;
 
-                default:
-                    // Log missing or unsupported value to Event Viewer
+                case "disabled":
                     LogEvent(EventLogEntryType.Information, EventIds.REMOVED_NOACTION);
+                    break;
+
+                default: // "lock" or any unrecognized value
+                    LogEvent(EventLogEntryType.Information, EventIds.REMOVED_LOCK);
+                    if (!LockWorkStation())
+                    {
+                        int err = Marshal.GetLastWin32Error();
+                        LogEvent(EventLogEntryType.Warning, EventIds.LOCK_FAILED, err.ToString());
+                    }
                     break;
             }
         }
