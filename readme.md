@@ -127,7 +127,7 @@ Donations will support costs such as domain registration and code signing (plann
 
 
 ## 📜 Release History
-* 2026.02.26 `v2.4`
+* 2026.03.01 `v2.4`
 * 2025.08.24 `v2.3`
 * 2025.01.06 `v2.2`
 * 2023.08.30 `v2.1`
