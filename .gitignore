@@ -27,3 +27,6 @@
 /messages/messages.res
 /messages/YkrbMsg64.dll
 /.gitignore
+/messages/out/messages.aps
+/messages/out/MSG00409.bin
+/messages/out/YkrbMsg64.dll
