@@ -1,4 +1,4 @@
-﻿/*
+/*
 ##########################################################################
 # YubiKey Removal Behavior     
 ##########################################################################
@@ -18,7 +18,7 @@
 * 
 * The registry key is set either by an MSI installer and/or using Group Policy.
 *
-* Licensed under BSD 2-Clause License. See LICENSE file for details.
+* Proprietary software. See LICENSE file for details.
 *
 ****************************************************************************
 * DISCLAIMER: Unless required by applicable law or agreed to in writing, 
