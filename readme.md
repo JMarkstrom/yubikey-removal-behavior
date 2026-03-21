@@ -119,7 +119,7 @@ Possible improvements includes:
 - ~~Reducing overall footprint / size of of application~~
 - ~~Code signing~~
 
-## 📜 License
+## ⚖️ License
 This software is proprietary. Copyright (c) 2025 swjm.blog. All rights reserved. See [LICENSE](LICENSE) for details.
 
 ## 🥷🏻 Support
