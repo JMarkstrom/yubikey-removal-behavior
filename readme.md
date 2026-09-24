@@ -117,7 +117,6 @@ _With NFC it is possible to achieve a "tap 'n go" type user experience:_
 Possible improvements includes:
 - ~~Using variables and/or relative paths in the installer (paths, registry keys)~~
 - ~~Reducing overall footprint / size of of application~~
-- ~~Code signing~~
 
 ## ⚖️ License
 This software is proprietary. Copyright (c) 2025 swjm.blog. All rights reserved. See [LICENSE](LICENSE) for details.
