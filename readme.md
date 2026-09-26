@@ -118,18 +118,11 @@ Possible improvements includes:
 - ~~Using variables and/or relative paths in the installer (paths, registry keys)~~
 - ~~Reducing overall footprint / size of of application~~
 
-## ™️ Trademark notice
-YubiKey is a trademark of Yubico. This project is independent of and is not affiliated with, endorsed by, or sponsored by Yubico.
-
-## ⚖️ License
-This software is proprietary. Copyright (c) 2025 swjm.blog. All rights reserved. See [LICENSE](LICENSE) for details.
-
-## 🥷🏻 Support
+## 🥷🏻 Contributing
 You can help by donating (any amount!).   
 Donations will support costs such as domain registration and code signing (planned).
 
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/donate/?business=RXAPDEYENCPXS&no_recurring=1&item_name=Help+cover+costs+of+the+SWJM+blog+and+app+code+signing%2C+supporting+a+more+secure+future+for+all.&currency_code=USD)
-
 
 ## 📜 Release History
 * 2026.09.24 `v2.6` (pre-release)
@@ -140,3 +133,9 @@ Donations will support costs such as domain registration and code signing (plann
 * 2023.08.30 `v2.1`
 * 2023.08.26 `v2.0`
 * 2022.12.27 `v1.0`
+
+## ™️ Trademark notice
+YubiKey is a trademark of Yubico. This project is independent of and is not affiliated with, endorsed by, or sponsored by Yubico.
+
+## ⚖️ License
+This software is proprietary. Copyright (c) 2025 swjm.blog. All rights reserved. See [LICENSE](LICENSE) for details.
