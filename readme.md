@@ -118,6 +118,9 @@ Possible improvements includes:
 - ~~Using variables and/or relative paths in the installer (paths, registry keys)~~
 - ~~Reducing overall footprint / size of of application~~
 
+## ™️ Trademark notice
+YubiKey is a trademark of Yubico. This project is independent of and is not affiliated with, endorsed by, or sponsored by Yubico.
+
 ## ⚖️ License
 This software is proprietary. Copyright (c) 2025 swjm.blog. All rights reserved. See [LICENSE](LICENSE) for details.
 
